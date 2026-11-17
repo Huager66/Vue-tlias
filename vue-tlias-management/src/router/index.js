@@ -10,7 +10,7 @@ import StuReportView from '@/views/stuReport/index.vue'
 import LayoutView from '@/views/layout/index.vue'
 import LoginView from '@/views/login/index.vue'
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
