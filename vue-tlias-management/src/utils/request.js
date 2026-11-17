@@ -4,7 +4,7 @@ import router from '../router'
 
 //创建axios实例对象
 const request = axios.create({
-  baseURL: VITE_MY,
+  baseURL:import.meta.env.VITE_MY,
   timeout: 600000,
 })
 
