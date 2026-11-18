@@ -3,8 +3,9 @@ import { ElMessage } from 'element-plus'
 import router from '../router'
 
 //创建axios实例对象
+const baseURL= import.meta.env.VITE_MY
 const request = axios.create({
-  baseURL:import.meta.env.VITE_MY,
+  baseURL:baseURL,
   timeout: 600000,
 })
 
