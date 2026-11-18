@@ -481,7 +481,7 @@ const getToken = () => {
           <el-form-item label="头像">
             <el-upload
               class="avatar-uploader"
-              action="baseURL+'/upload'"
+              :action="baseURL+'/upload'"
               :headers="{ token: token }"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
