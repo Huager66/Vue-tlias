@@ -13,13 +13,10 @@ const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
-       path: '/',
-      redirect: '/login'
-    },
-     { path: '/login', name: 'login', component: LoginView },
-    {
       path: '/',
+      name: 'layout',
       component: LayoutView,
+      redirect: '/index',
       children: [
         { path: 'index', name: 'index1', component: IndexView },
         { path: 'clazz', name: 'clazz', component: ClazzView },
@@ -31,24 +28,9 @@ const router = createRouter({
         { path: 'stuReport', name: 'stuReport', component: StuReportView },
       ],
     },
+    { path: '/login', name: 'index', component: LoginView },
   ],
 })
 
-// 路由守卫【关键！】
-router.beforeEach((to, from, next) => {
-  // 拿到本地登录信息
-  const loginUser = JSON.parse(localStorage.getItem('loginUser'))
-  // 去登录页：直接放行
-  if (to.path === '/login') {
-    next()
-  } else {
-    // 去其他页面：判断有没有登录信息
-    if (loginUser && loginUser.token) {
-      next()
-    } else {
-      // 没登录，跳登录
-      next('/login')
-    }
-  }
-})
+
 export default router
