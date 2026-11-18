@@ -34,4 +34,21 @@ const router = createRouter({
   ],
 })
 
+// 路由守卫【关键！】
+router.beforeEach((to, from, next) => {
+  // 拿到本地登录信息
+  const loginUser = JSON.parse(localStorage.getItem('loginUser'))
+  // 去登录页：直接放行
+  if (to.path === '/login') {
+    next()
+  } else {
+    // 去其他页面：判断有没有登录信息
+    if (loginUser && loginUser.token) {
+      next()
+    } else {
+      // 没登录，跳登录
+      next('/login')
+    }
+  }
+})
 export default router
