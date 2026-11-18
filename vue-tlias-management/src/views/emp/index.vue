@@ -3,6 +3,7 @@ import { ref, watch, onMounted } from 'vue'
 import { queryPageApi, addApi, queryInfoApi, updateApi, deleteApi } from '@/api/emp'
 import { queryAllApi as queryAllDeptApi } from '@/api/dept'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { baseURL } from '@/utils/request'
 
 const searchEmp = ref({
   name: '',
@@ -480,7 +481,7 @@ const getToken = () => {
           <el-form-item label="头像">
             <el-upload
               class="avatar-uploader"
-              action="/upload"
+              action="baseURL+'/upload'"
               :headers="{ token: token }"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
