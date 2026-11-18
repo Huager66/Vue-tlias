@@ -12,7 +12,10 @@ const searchEmp = ref({
   begin: '',
   end: '',
 })
+const loginUser = JSON.parse(localStorage.getItem('loginUser'))
+const token = loginUser?.token || ''
 
+  
 watch(
   () => searchEmp.value.date,
   (newVal, oldVal) => {
