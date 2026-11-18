@@ -11,8 +11,8 @@ const login = async () => {
   const result = await loginApi(loginForm.value)
   if (result.code) {
     ElMessage.success('登录成功')
-    router.push('/')
     localStorage.setItem('loginUser', JSON.stringify(result.data))
+  router.push('/index')
   } else {
     ElMessage.error(result.msg)
   }
