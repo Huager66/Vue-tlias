@@ -40,3 +40,4 @@ request.interceptors.response.use(
 )
 
 export default request
+export default baseURL
