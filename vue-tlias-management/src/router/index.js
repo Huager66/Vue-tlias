@@ -16,7 +16,7 @@ const router = createRouter({
       path: '/',
       name: 'layout',
       component: LayoutView,
-      redirect: '/index',
+      redirect: '/login',
       children: [
         { path: 'index', name: 'index1', component: IndexView },
         { path: 'clazz', name: 'clazz', component: ClazzView },
